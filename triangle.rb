@@ -15,6 +15,17 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  if a<0 || b<0 || c<0 || a+b<=c || a+c<=b || b+c<=a
+    raise TriangleError, "Invalid sides for a triangle"
+  end
+  if a==b || b==c || a==c
+    if a==b && b==c
+      return :equilateral
+    end
+    return :isosceles
+  else
+    return :scalene
+  end 
 end
 
 # Error class used in part 2.  No need to change this code.
